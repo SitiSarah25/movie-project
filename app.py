@@ -1,3 +1,4 @@
+import requests
 from flask import Flask, render_template, request, jsonify
 from pymongo import MongoClient
 from bs4 import BeautifulSoup
@@ -48,8 +49,6 @@ def movie_post():
     }
     db.movies.insert_one(doc)
     return jsonify({'msg' : 'POST request!'})
-    
-    return jsonify({'msg':'POST request!'})
 
 @app.route("/movie", methods=["GET"])
 def movie_get():
